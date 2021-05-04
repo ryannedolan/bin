@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SRC=$(src)
+
+for f in $SRC
+do
+    sed -i "" -e "$@" "$f"
+done

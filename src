@@ -1,0 +1,17 @@
+#!/bin/bash
+
+FOLDER="main"
+LANG="scala"
+
+while test $# != 0
+do
+    case "$1" in
+    -j) LANG="java" ;; 
+    -s) LANG="scala" ;;
+    -t) FOLDER="test" ;;
+    -m) FOLDER="main" ;;
+    esac
+    shift
+done
+
+find . -type f -path "**/$FOLDER/$LANG/**"

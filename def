@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ag -l "(def|class|func|interface) $1"
