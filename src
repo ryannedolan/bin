@@ -1,17 +1,20 @@
 #!/bin/bash
 
-FOLDER="main"
-LANG="scala"
+TARGET="**/main/**"
+LANG="**/scala/**"
+NAME="*"
 
 while test $# != 0
 do
     case "$1" in
-    -j) LANG="java" ;; 
-    -s) LANG="scala" ;;
-    -t) FOLDER="test" ;;
-    -m) FOLDER="main" ;;
+    -j) LANG="**/java/**" ;; 
+    -s) LANG="**/scala/**" ;;
+    -t) TARGET="**/test/**" ;;
+    -m) TARGET="**/main/**" ;;
+    -a) TARGET="**" LANG="**" ;;
+    --build) NAME="BUILD" ;;
     esac
     shift
 done
 
-find . -type f -path "**/$FOLDER/$LANG/**"
+find . -type f -path "$LANG" -path "$TARGET" -name "$NAME"

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SRC=$(src)
+SRC=$(src $@)
 
 for f in $SRC
 do
-    sed -i "" -e "$@" "$f"
+    sed -i "" -e "${@: -1}" "$f"
 done
